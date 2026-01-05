@@ -2,12 +2,26 @@ import React, { useState } from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-export default function Home() {
+export default function Home({ username }) {
     const [count, setCount] = useState(0);
-    return (
-        <div>
-            <Header countValue = {count}/>
+    const [heading, setHeading] = useState('');
+    const [foot, setFoot] = useState('');
 
+    const showHeaderStatus = (headingValue) => {
+        setHeading(headingValue)
+    };
+    const showFooterStatus = (footerValue) => {
+        setFoot(footerValue)
+    };
+
+    return (
+        <>
+        <div>
+            <Header
+                countValue={count}
+                StatustoParentFromHeader={showHeaderStatus} />
+            <p>{heading}</p>
+            <p>{username}</p>
             <div className="flex flex-col items-center justify-center mt-10">
                 <h1 className="text-3xl font-bold mb-4">Counter: {count}</h1>
 
@@ -28,7 +42,11 @@ export default function Home() {
                 </div>
             </div>
 
-            <Footer />
+            <Footer
+                StatustoParentFromFooter={showFooterStatus}
+            />
         </div>
+        <p>{foot}</p>
+    </>
     )
 }

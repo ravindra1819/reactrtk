@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 
-export default function Footer() {
+export default function Footer({StatustoParentFromFooter}) {
+
+  const [status, setStatus] = useState('received');
+  function updateStatus() {
+    StatustoParentFromFooter(status);
+  }
+
+  useEffect(()=> {
+    updateStatus()
+  }, [])
+
   return (
     <footer className="bg-white dark:bg-gray-800 fixed bottom-0 left-0 right-0">
       <div className="max-w-7xl mx-auto w-full p-6 md:py-8">

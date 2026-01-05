@@ -7,14 +7,16 @@ import Team from './components/Team'
 // import Footer from './components/Footer'
 
 export default function App() {
+  const user = 'Ravindra';
   return (
     <div>
       {/* <Header />
       <Counter />
       <Footer /> */}
 
+
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home username={user} />} />
         <Route path='/team' element={<Team />} />
       </Routes>
     </div>

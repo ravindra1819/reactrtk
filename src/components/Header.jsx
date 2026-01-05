@@ -1,8 +1,17 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
-export default function Header({ countValue }) {
+export default function Header({ countValue, StatustoParentFromHeader }) {
+
+    const [status, setStatus] = useState('liked');
+    function updateStatus() {
+        StatustoParentFromHeader(status);
+    }
+    useEffect(()=> {
+        updateStatus();
+    }, [])
     return (
         <div>
+
             <header>
                 <nav className="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800">
                     <div className="flex flex-wrap justify-between items-center mx-auto max-w-7xl">

@@ -44,7 +44,6 @@ export default function Team() {
     return (
 
         <React.Fragment>
-            <Header countValue={count}/>
             <div className="bg-white py-24 sm:py-32">
                 <div className="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3">
                     <div className="max-w-xl">
